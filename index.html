@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <title>Premier League Club Guesser | V0.2</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/x-icon" href="./src/assets/soccer-ball-png-33.png">
+  <script type="module" src="./src/main.js"></script>
+
+</head>
+
+<body>
+  
+  <game-header>
+    <div class="button" name="help" slot="buttons-left"></div>
+    <div class="button" name="play" slot="buttons-left"></div>
+    <h2 slot="brand"><img src="./pp_logo_name_xl-8e6a3c9385f64b20e13e7f5dd00acdd0.png" alt=""> 
+    </h2>
+    <div class="button" name="stats" slot="buttons-right"></div>
+    <div class="button" name="settings" slot="buttons-right"></div>
+  </game-header>
+  
+  <div>
+    <input type="checkbox" class="checkbox" id="chk" />
+    <label class="label" for="chk">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+      <div class="ball"></div>
+    </label>
+  </div>
+  <script>
+    const chk = document.getElementById('chk');
+
+chk.addEventListener('change', () => {
+	document.body.classList.toggle('dark');
+});
+
+// SOCIAL PANEL JS
+const floating_btn = document.querySelector('.floating-btn');
+const close_btn = document.querySelector('.close-btn');
+const social_panel_container = document.querySelector('.social-panel-container');
+
+floating_btn.addEventListener('click', () => {
+	social_panel_container.classList.toggle('visible')
+});
+
+close_btn.addEventListener('click', () => {
+	social_panel_container.classList.remove('visible')
+});
+
+  </script>
+  <div class="preloader">
+    <div class="circle"></div>
+</div>
+<script>
+  var preloader = document.querySelector(".preloader");
+window.onload = ()=>{
+    setTimeout(function(){
+        preloader.style.opacity = "0";
+        setTimeout(function(){
+            preloader.style.display = "none";
+        }, 500);
+    }, 2000);
+}
+</script>
+  <screen-router>
+    <div slot="load-spinner">
+      &#9676;
+    </div>
+  
+    <div id="game-screen" slot="screen">
+      <pixelated-img id="game-image"></pixelated-img>
+
+      <p>
+        <form autocomplete="off">
+            <auto-complete placeholder="Guess the landmark"></auto-complete>
+            <button type="submit">OK</button>
+         </form>
+      </p>
+    
+      <h4 id="guessesRemaining">5 guesses remaining</h4>
+      <div id="guesses"></div>
+    </div>
+
+    <div id="results-screen" slot="screen">
+      <p>Today's Club Was...</p>
+      <img id="result-image" />
+      <h1 id="resultLine1">New York, NY</h1>
+      <h2 id="resultLine2">GOOOALLLLL!!!</h2>
+      <button name="share">🗨️ Share</button>
+      <p><span id="timeLeft"></span></p>
+    </div>
+
+    <div id="help-screen" slot="screen">
+      <h2>Welcome to Premier League Club Guesser!</h2>
+      <p>In this game your goal is to determine which soccer teams logo is in the blurred image. If you find it, you win!</p>
+      <p>Each day you have the chance to guess</p>
+      <video id="player" playsinline controls data-poster="/path/to/poster.jpg">
+        <source src="./video.mp4" type="video/mp4" />
+      </video>
+      <script src="https://cdn.plyr.io/3.6.3/plyr.polyfilled.js"></script>
+      <div class="container">
+        <button name="back">Continue</button>
+      </div>
+      
+     
+    </div>
+
+    <div id="stats-screen" slot="screen">
+      <h2>Goals</h2>
+      <p id="winStats"></p>
+      <button id="statsBackBtn" name="back">Back</button>
+    </div>
+
+    <div id="settings-screen" slot="screen">
+      <h2>Settings</h2>
+      <div class="showIfLoggedOut">
+        <div>Login to save or transfer your game progress.</div>
+        <button name="login">📱 Login</button>
+      </div>
+      <div class="showIfLoggedIn">
+        <div>You are logged in, your progress will be saved.</div>
+        <button name="logout">Logout</button>
+      </div>
+      <button name="back">Back</button>
+      
+      
+    </div>
+  </screen-router>
+  
+</body>
+
+</html>

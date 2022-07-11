@@ -1,0 +1,21 @@
+{
+  "name": "soccer-team-guesser",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "vite --open --host",
+    "build": "vite build",
+    "test": "eslint src",
+    "lint": "eslint --fix src"
+  },
+  "dependencies": {
+    "darkmode-js": "^1.5.7",
+    "image-pixels": "^2.2.2",
+    "playpass": "^1.4.4",
+    "stackblur-canvas": "^2.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "vite": "^2.8.0"
+  }
+}
